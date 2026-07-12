@@ -1,3 +1,7 @@
+output "netapp_backup_vaults_id" {
+  description = "Map of id values across all netapp_backup_vaults, keyed the same as var.netapp_backup_vaults"
+  value       = { for k, v in azurerm_netapp_backup_vault.netapp_backup_vaults : k => v.id }
+}
 output "netapp_backup_vaults_account_name" {
   description = "Map of account_name values across all netapp_backup_vaults, keyed the same as var.netapp_backup_vaults"
   value       = { for k, v in azurerm_netapp_backup_vault.netapp_backup_vaults : k => v.account_name }
